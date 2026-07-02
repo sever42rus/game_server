@@ -1,0 +1,8 @@
+pyproject.toml
+gameserver.egg-info/PKG-INFO
+gameserver.egg-info/SOURCES.txt
+gameserver.egg-info/dependency_links.txt
+gameserver.egg-info/requires.txt
+gameserver.egg-info/top_level.txt
+src/__init__.py
+src/main.py
