@@ -33,5 +33,10 @@ async def main():
     await server.start()
 
 
-if __name__ == "__main__":
+def run():
+    """Запускает игровой сервер из консольной команды."""
     asyncio.run(main())
+
+
+if __name__ == "__main__":
+    run()

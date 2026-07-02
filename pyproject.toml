@@ -9,6 +9,9 @@ description = "UDP backend for a multiplayer game."
 requires-python = ">=3.12"
 dependencies = []
 
+[project.scripts]
+game-server = "src.main:run"
+
 [project.optional-dependencies]
 dev = [
     "pytest>=8.0",

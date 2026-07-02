@@ -10,6 +10,12 @@
 python -m src.main
 ```
 
+Либо через консольный скрипт `uv`:
+
+```bash
+uv run game-server
+```
+
 По умолчанию сервер слушает `127.0.0.1:9000`. Настройки находятся в
 `src/infrastructure/config.py`:
 
