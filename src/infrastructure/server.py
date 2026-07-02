@@ -11,10 +11,8 @@ from src.domain.models import GameCommand, MoveCommand, PlayerId
 from src.infrastructure.codec import GameProtocolCodec
 from src.infrastructure.config import (
     COMMAND_QUEUE_SIZE,
-    HOST,
     MAX_CATCH_UP_TICKS,
     MAX_COMMANDS_PER_TICK,
-    PORT,
     TICK_RATE,
 )
 from src.infrastructure.sessions import SessionRegistry
@@ -43,7 +41,7 @@ class GameServer:
         )
         self._publisher = TcpPublisher(sessions=sessions, codec=codec)
 
-    async def start(self) -> None:
+    async def start(self, host: str, port: int) -> None:
         """
         Запускает TCP-сервер и игровой цикл обработки команд.
         """
@@ -51,11 +49,11 @@ class GameServer:
         loop.set_exception_handler(self._handle_loop_exception)
         server = await asyncio.start_server(
             self._handle_client,
-            HOST,
-            PORT,
+            host,
+            port,
         )
 
-        print(f"TCP server started on {HOST}:{PORT}")
+        print(f"TCP server started on {host}:{port}")
         asyncio.create_task(self._world_loop())
 
         async with server:

@@ -7,20 +7,20 @@
 ## Запуск
 
 ```bash
-python -m src.main
+python -m src.main --host 127.0.0.1 --port 9000
 ```
 
 Либо через консольный скрипт `uv`:
 
 ```bash
-uv run game-server
+uv run game-server --host 127.0.0.1 --port 9000
 ```
 
-По умолчанию сервер слушает `127.0.0.1:9000`. Настройки находятся в
-`src/infrastructure/config.py`:
+Параметры `--host` и `--port` обязательны. Адрес должен быть корректным IPv4
+или IPv6, а порт должен находиться в диапазоне `1..65535`.
 
-- `HOST` - адрес TCP-сервера;
-- `PORT` - порт TCP-сервера;
+Остальные настройки находятся в `src/infrastructure/config.py`:
+
 - `TICK_RATE` - частота игрового цикла;
 - `STATE_CHANGE_COOLDOWN_SECONDS` - длительность блокировки смены состояния
   после переходов `standing <-> sitting`;
